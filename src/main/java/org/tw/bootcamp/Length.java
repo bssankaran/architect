@@ -28,9 +28,7 @@ public class Length {
         }
 
         if (obj instanceof Length) {
-            if (((Length) obj).lengthInMeters == this.lengthInMeters) {
-                return true;
-            }
+            return ((Length) obj).lengthInMeters == this.lengthInMeters;
         }
 
         return false;
