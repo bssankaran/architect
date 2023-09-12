@@ -8,6 +8,33 @@ import java.time.Duration;
 
 public class LengthTest {
     @Test
+    public void should_return_2m_when_adding_100cm_with_1m() {
+
+        Length length1 = Length.ofMeter(1);
+        Length length2 = Length.ofCentimeter(100);
+
+        Length result = length1.add(length2);
+
+        assertEquals(Length.ofMeter(2), result);
+
+        assertEquals("2.0m", result.toString());
+    }
+
+    @Test
+    public void should_return_300m_when_adding_1m_with_200cm() {
+
+        Length length1 = Length.ofMeter(1);
+        Length length2 = Length.ofCentimeter(200);
+
+        Length result = length2.add(length1);
+
+        assertEquals(Length.ofCentimeter(300), result);
+
+        assertEquals("300.0cm", result.toString());
+    }
+
+
+    @Test
     public void should_return_true_when_1cm_is_same_as_another_1_cm() {
         Length length1 = Length.ofCentimeter(1);
 

@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Length {
     private final double lengthInMeters;
+    private final DistanceUnits distanceUnits;
 
     private Length(double length) {
         this.lengthInMeters = length;
@@ -38,4 +39,15 @@ public class Length {
     public int hashCode() {
         return Objects.hashCode(lengthInMeters);
     }
+
+    public Length add(Length length2) {
+        return  Length.ofMeter(lengthInMeters+length2.lengthInMeters);
+    }
+
+   @Override
+    public String toString(){
+
+        return String.valueOf(lengthInMeters)+"m";
+
+   }
 }
