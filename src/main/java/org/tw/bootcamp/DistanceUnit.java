@@ -8,12 +8,12 @@ public enum DistanceUnit {
     CENTIMETER("cm", 100, Length::ofCentimeter);
 
     private final String abbreviation;
-    private final double factor;
+    private final double multiplicationFactor;
     private final Function<Double, Length> lengthFactory;
 
-    DistanceUnit(String abbreviation, double factor, Function<Double, Length> lengthFactory) {
+    DistanceUnit(String abbreviation, double multiplicationFactor, Function<Double, Length> lengthFactory) {
         this.abbreviation = abbreviation;
-        this.factor = factor;
+        this.multiplicationFactor = multiplicationFactor;
         this.lengthFactory = lengthFactory;
     }
 
@@ -22,7 +22,7 @@ public enum DistanceUnit {
     }
 
     public double magnitude(double lengthInMeters) {
-        return factor * lengthInMeters;
+        return multiplicationFactor * lengthInMeters;
     }
 
     public Function<Double, Length> lengthFactory() {
