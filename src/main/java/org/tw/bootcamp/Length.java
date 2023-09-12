@@ -1,15 +1,14 @@
 package org.tw.bootcamp;
 
 import java.util.Objects;
-import java.util.function.Supplier;
 
 public class Length {
     private final double lengthInMeters;
-    private final DistanceUnit distanceUnit;
+    private final DistanceUnit defaultDistanceUnit;
 
-    private Length(double length, DistanceUnit distanceUnit) {
+    private Length(double length, DistanceUnit defaultDistanceUnit) {
         this.lengthInMeters = length;
-        this.distanceUnit = distanceUnit;
+        this.defaultDistanceUnit = defaultDistanceUnit;
     }
 
     public static Length ofCentimeter(double centimeter) {
@@ -43,11 +42,11 @@ public class Length {
     }
 
     public Length add(Length length2) {
-        return new Length(lengthInMeters + length2.lengthInMeters, distanceUnit);
+        return new Length(lengthInMeters + length2.lengthInMeters, defaultDistanceUnit);
     }
 
     @Override
     public String toString() {
-        return distanceUnit.magnitude(lengthInMeters) + distanceUnit.abbreviation();
+        return defaultDistanceUnit.magnitude(lengthInMeters) + defaultDistanceUnit.abbreviation();
     }
 }
