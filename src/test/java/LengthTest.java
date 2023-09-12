@@ -65,7 +65,7 @@ public class LengthTest {
     }
 
     @Test
-    void should_return_false_when_comparing_500_cm_and_1_meter(){
+    void should_return_false_when_comparing_50_cm_and_1_meter(){
         Length length1 = Length.ofCentimeter(50);
         Length length2 = Length.ofMeter(1);
 
