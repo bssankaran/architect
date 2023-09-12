@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.tw.bootcamp.Length;
 
+import java.time.Duration;
+
 public class LengthTest {
     @Test
     public void should_return_true_when_1cm_is_same_as_another_1_cm() {
@@ -45,7 +47,7 @@ public class LengthTest {
     }
 
     @Test
-    void should_return_true_when_comparing_1_meter_and_100_cm(){
+    void should_return_true_when_comparing_1_meter_and_100_cm() {
         Length length1 = Length.ofMeter(1);
         Length length2 = Length.ofCentimeter(100);
 
@@ -55,7 +57,7 @@ public class LengthTest {
     }
 
     @Test
-    void should_return_true_when_comparing_100_cm_and_1_meter(){
+    void should_return_true_when_comparing_100_cm_and_1_meter() {
         Length length1 = Length.ofCentimeter(100);
         Length length2 = Length.ofMeter(1);
 
@@ -65,7 +67,7 @@ public class LengthTest {
     }
 
     @Test
-    void should_return_false_when_comparing_50_cm_and_1_meter(){
+    void should_return_false_when_comparing_50_cm_and_1_meter() {
         Length length1 = Length.ofCentimeter(50);
         Length length2 = Length.ofMeter(1);
 

@@ -3,18 +3,18 @@ package org.tw.bootcamp;
 import java.util.Objects;
 
 public class Length {
-    private final double length;
+    private final double lengthInMeters;
 
     private Length(double length) {
-        this.length = length;
+        this.lengthInMeters = length;
     }
 
-    public static Length ofCentimeter(double length) {
-        return new Length(length/100);
+    public static Length ofCentimeter(double centimeter) {
+        return new Length(centimeter/100);
     }
 
-    public static Length ofMeter(double length) {
-        return new Length(length);
+    public static Length ofMeter(double meter) {
+        return new Length(meter);
     }
 
     public boolean same(Length length2) {
@@ -28,7 +28,7 @@ public class Length {
         }
 
         if (obj instanceof Length) {
-            if (((Length) obj).length == this.length) {
+            if (((Length) obj).lengthInMeters == this.lengthInMeters) {
                 return true;
             }
         }
@@ -38,6 +38,6 @@ public class Length {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this);
+        return Objects.hashCode(lengthInMeters);
     }
 }
