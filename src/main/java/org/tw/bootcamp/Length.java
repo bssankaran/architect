@@ -1,21 +1,23 @@
 package org.tw.bootcamp;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
 public class Length {
     private final double lengthInMeters;
-    private final DistanceUnits distanceUnits;
+    private final DistanceUnit distanceUnit;
 
-    private Length(double length) {
+    private Length(double length, DistanceUnit distanceUnit) {
         this.lengthInMeters = length;
+        this.distanceUnit = distanceUnit;
     }
 
     public static Length ofCentimeter(double centimeter) {
-        return new Length(centimeter/100);
+        return new Length(centimeter / 100, DistanceUnit.CENTIMETER);
     }
 
     public static Length ofMeter(double meter) {
-        return new Length(meter);
+        return new Length(meter, DistanceUnit.METER);
     }
 
     public boolean same(Length length2) {
@@ -41,13 +43,11 @@ public class Length {
     }
 
     public Length add(Length length2) {
-        return  Length.ofMeter(lengthInMeters+length2.lengthInMeters);
+        return distanceUnit.lengthFactory().apply(distanceUnit.magnitude(lengthInMeters + length2.lengthInMeters));
     }
 
-   @Override
-    public String toString(){
-
-        return String.valueOf(lengthInMeters)+"m";
-
-   }
+    @Override
+    public String toString() {
+        return distanceUnit.magnitude(lengthInMeters) + distanceUnit.abbreviation();
+    }
 }
