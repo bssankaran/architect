@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.tw.bootcamp.Length;
 
+import java.time.Duration;
+
 public class LengthTest {
     @Test
     public void should_return_2m_when_adding_100cm_with_1m() {
@@ -29,6 +31,8 @@ public class LengthTest {
         assertEquals(Length.ofCentimeter(300), result);
 
         assertEquals("300.0cm", result.toString());
+
+        Duration duration = Duration.ofSeconds(1);
     }
 
 

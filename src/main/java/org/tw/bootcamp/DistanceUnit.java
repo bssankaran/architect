@@ -4,17 +4,15 @@ import java.util.function.Function;
 
 public enum DistanceUnit {
 
-    METER("m", 1, Length::ofMeter),
-    CENTIMETER("cm", 100, Length::ofCentimeter);
+    METER("m", 1),
+    CENTIMETER("cm", 100);
 
     private final String abbreviation;
     private final double multiplicationFactor;
-    private final Function<Double, Length> lengthFactory;
 
-    DistanceUnit(String abbreviation, double multiplicationFactor, Function<Double, Length> lengthFactory) {
+    DistanceUnit(String abbreviation, double multiplicationFactor) {
         this.abbreviation = abbreviation;
         this.multiplicationFactor = multiplicationFactor;
-        this.lengthFactory = lengthFactory;
     }
 
     public String abbreviation() {
@@ -23,9 +21,5 @@ public enum DistanceUnit {
 
     public double magnitude(double lengthInMeters) {
         return multiplicationFactor * lengthInMeters;
-    }
-
-    public Function<Double, Length> lengthFactory() {
-        return lengthFactory;
     }
 }

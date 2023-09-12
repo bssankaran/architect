@@ -43,7 +43,7 @@ public class Length {
     }
 
     public Length add(Length length2) {
-        return distanceUnit.lengthFactory().apply(distanceUnit.magnitude(lengthInMeters + length2.lengthInMeters));
+        return new Length(lengthInMeters + length2.lengthInMeters, distanceUnit);
     }
 
     @Override
